@@ -5,8 +5,6 @@ HEAL.Parsers.DIAdem provides managed C# access to the proprietary DIAdem data fo
 DIAdem is a trademark of National Instruments. Neither [HEAL](https://heal.heuristiclab.com/), nor any software programs or other goods or services offered by [HEAL](https://heal.heuristiclab.com/), are affiliated with, endorsed by, or sponsored by National Instruments.
 
 ## Table of Contents
-1. [About](#about)
-
 1. [Getting Started](#getting-started)
 
 1. [Features and Usage](#features-and-usage )
@@ -31,7 +29,7 @@ Download the National Instruments TDM C DLL library as described in the [Nationa
 Prerequisites and build instructions can be found in the [development instructions](docs/development.md).
 
 # Features and Usage
-Visit our [detailed documentation](HEAL.Domain.DataAccess.DIAdem.md) for more information on usage of the Package and on National Instrument's licenses.
+Visit our [detailed documentation](docs/HEAL.Domain.DataAccess.DIAdem.md) for more information on usage of the Package and on National Instrument's licenses. The access library currently requires a **64bit environment** to work.
 
 *DAT Access*
 ```C#
@@ -63,7 +61,7 @@ using(var datreader =  new TDMReader(@"path_to.tdm")){
 }
 ```
 # License 
-*DIAdem is a trademark of National Instruments. Neither [HEAL](https://heal.heuristiclab.com/), nor any software programs or other goods or services offered by [HEAL](https://heal.heuristiclab.com/), are affiliated with, endorsed by, or sponsored by National Instruments.*
+*DIAdem is a trademark of National Instruments. Neither [HEAL](https://heal.heuristiclab.com/), nor any software programs or other goods or services offered by HEAL, are affiliated with, endorsed by, or sponsored by National Instruments.*
 
 The project HEAL.Parsers.DIAdem is [licensed](LICENSE.txt) under the MIT License.
 
