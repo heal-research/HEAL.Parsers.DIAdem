@@ -1,33 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
-namespace HEAL.Parsers.DIAdem.Tdm.Structures
-{
-    public enum TDMChannelDataTypes
-    {
+namespace HEAL.Parsers.DIAdem.Tdm.Structures {
+    public enum TDMChannelDataTypes {
         DDC_UInt8 = 5,  // unsigned char
         DDC_Int16 = 2,  // short
         DDC_Int32 = 3,  // int
         DDC_Float = 9,  // float
         DDC_Double = 10,    // double
         DDC_String = 23,    // string
-        DDC_Timestamp = 30,	// timestamp (Year/Month/Day/Hour/Minute/Second/Millisecond components)
+        DDC_Timestamp = 30,	// timestamp (year/month/day/hour/minute/second/millisecond components)
     }
 
-    public enum TDMFileTypes
-    {
-        TDM, TDMS
-    }
+    public enum TDMFileTypes { TDM, TDMS }
 
-    public enum TDMHandleTypes
-    {
+    public enum TDMHandleTypes {
         AnyRef, FileHandle, ChannelGroup, Channel
     }
 
-    public enum TDMReturnCodes
-    {
+    public enum TDMReturnCodes {
         [Description("No error")]
         DDC_NoError = 0,
         [Description("Error Begin")]
@@ -81,7 +71,7 @@ namespace HEAL.Parsers.DIAdem.Tdm.Structures
         DDC_FileAccessDenied = -6224,
         [Description("The specified time value is invalid.")]
         DDC_InvalidTimeValue = -6225,
-        [Description("The replace operation is not supported on data that has already been saved to a TDM Streaming file.")]
+        [Description("The replace operation is not supported on data that has already been saved to a TDM streaming file.")]
         DDC_ReplaceNotSupportedForSavedTDMSData = -6226,
         [Description("The data type of the property does not match the expected data type.")]
         DDC_PropertyDataTypeMismatch = -6227,

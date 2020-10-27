@@ -9,7 +9,7 @@ using Xunit;
 namespace HEAL.Parsers.DIAdem.Tests {
   public class Shared {
     /// <summary>
-    /// TDM access library is not threadsafe; Multiple threads of unit tests might interfer and lock dll files.
+    /// TDM access library is not thread-safe; Multiple threads of unit tests might interfere and lock dll files.
     /// </summary>
     public static readonly object TdmReaderLock = new object();
 

@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-using System.Text;
 
-namespace HEAL.Parsers.DIAdem.Tdm.Structures
-{
-    public static class StructureExtensions
-    {
-        public static string GetStringConstant(this TDMFileTypes fileType)
-        {
-            switch (fileType)
-            {
+namespace HEAL.Parsers.DIAdem.Tdm.Structures {
+    public static class StructureExtensions {
+        public static string GetStringConstant(this TDMFileTypes fileType) {
+            switch (fileType) {
                 case TDMFileTypes.TDM:
                     return Constants.FileTypes.TDM;
                 case TDMFileTypes.TDMS:
@@ -21,8 +15,7 @@ namespace HEAL.Parsers.DIAdem.Tdm.Structures
             }
         }
 
-        public static string GetEnumDescription(this Enum value)
-        {
+        public static string GetEnumDescription(this Enum value) {
             FieldInfo fi = value.GetType().GetField(value.ToString());
 
             DescriptionAttribute[] attributes =
@@ -37,10 +30,8 @@ namespace HEAL.Parsers.DIAdem.Tdm.Structures
                 return value.ToString();
         }
 
-        public static Type GetNETDataType(this TDMChannelDataTypes ddcDataType)
-        {
-            switch (ddcDataType)
-            {
+        public static Type GetNETDataType(this TDMChannelDataTypes ddcDataType) {
+            switch (ddcDataType) {
                 case TDMChannelDataTypes.DDC_Double:
                     return typeof(double);
                 case TDMChannelDataTypes.DDC_Float:

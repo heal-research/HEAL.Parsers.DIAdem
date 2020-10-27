@@ -19,13 +19,13 @@ namespace HEAL.Parsers.DIAdem.Dat {
         this(new FileInfo(pathToFile)) {  }
 
     /// <summary>
-    /// creates a new instance of <see cref="TDMReader"/> and immediately opens the file provided in construktor parameters.
+    /// creates a new instance of <see cref="TDMReader"/> and immediately opens the file provided in constructor parameters.
     /// Throws <see cref="FileNotFoundException"/> if file is not existent or <see cref="ArgumentException"/> if file is not '*.tdm' file
     /// </summary>
     /// <param name="file"></param>
     public DATReader(FileInfo file) {
       if (!file.Exists)
-        throw new FileNotFoundException("Supplied file-path does not point to a file.");
+        throw new FileNotFoundException("Supplied file path does not point to a file.");
       if (!file.Extension.ToLowerInvariant().EndsWith($".{Constants.FileTypes.DAT.ToLowerInvariant()}"))
         throw new ArgumentException($"Supplied parameter {nameof(file)} must be of type {Constants.FileTypes.DAT}.", nameof(file));
 
@@ -163,7 +163,6 @@ namespace HEAL.Parsers.DIAdem.Dat {
     }
 
     public void Dispose() {
-
     }
   }
 }

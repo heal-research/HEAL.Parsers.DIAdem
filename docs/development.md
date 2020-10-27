@@ -1,4 +1,4 @@
-# Development and contribution
+# Development and Contributing
 
 ## Prerequisites
 
@@ -7,21 +7,22 @@
 1. [optional] install [Nerdbank.GitVersioning .NET Core CLI tool](https://github.com/dotnet/Nerdbank.GitVersioning).  
     - only necessary if you want to create *release candidate* or *release* branches
     - for more information on versioning read [Versioning and deployment](#versioning-and-deployment)
-1. download the National Instruments TDM C DLL library [here](https://www.ni.com/content/dam/web/product-documentation/c_dll_tdm.zip) and place the zip in `src>libs>NILIBDDC-64bit.zip` 
+1. download the National Instruments TDM C DLL library [here](https://www.ni.com/content/dam/web/product-documentation/c_dll_tdm.zip) and place the zip in `src/libs/NILIBDDC-64bit.zip` 
     - zip the contents of `TDM C DLL\dev\bin\64-bit` 
     - place the zip in the described folder
-    - MSBuild Instructions extract the library into the unit test's bin folder as a post build event
+    - MSBuild extracts the library into the unit test's bin folder as a post build event
 
     ![Install NILIBDDC](img/InstallNILIBDDC.GIF)
 
 ## Building the project
 Is as easy as:
-- run `build solution` in visual studio 
+- run `Build Solution` in Visual Studio 
 - or run `BUILD.cmd`
 
 ## Versioning and deployment
 This project utilizes the [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) package for stamping assemblies and version assignment and follows the [semantic versioning guideline](https://semver.org/#spec-item-9). 
 
+Semantic versioning example:
 ```
 1.0.0-prerelease < 1.0.1-prerelease < 1.0.1-rc < 1.0.1
 ```

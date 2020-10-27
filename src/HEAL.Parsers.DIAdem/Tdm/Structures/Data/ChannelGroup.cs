@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace HEAL.Parsers.DIAdem.Tdm.Structures
-{
-    public class ChannelGroup : Handle
-    {
+namespace HEAL.Parsers.DIAdem.Tdm.Structures {
+    public class ChannelGroup : Handle {
         public ChannelGroup(Int64 ptr)
             : base(ptr) { }
         public override TDMHandleTypes HandleType => TDMHandleTypes.ChannelGroup;

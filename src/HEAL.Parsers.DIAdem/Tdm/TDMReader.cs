@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace HEAL.Parsers.DIAdem.Tdm {
   /// <summary>
@@ -16,14 +14,14 @@ namespace HEAL.Parsers.DIAdem.Tdm {
     private readonly FileHandle _fileHandle;
 
     /// <summary>
-    /// calls <see cref="TDMReader.TDMReader(FileInfo)"/> Constructor with <see cref="FileInfo"/> parameter
+    /// calls <see cref="TDMReader.TDMReader(FileInfo)"/> constructor with <see cref="FileInfo"/> parameter
     /// </summary>
     /// <param name="pathToFile">string path to file</param>
     public TDMReader(string pathToFile) :
         this(new FileInfo(pathToFile)) { }
 
     /// <summary>
-    /// creates a new instance of <see cref="TDMReader"/> and immediately opens the file provided in construktor parameters.
+    /// creates a new instance of <see cref="TDMReader"/> and immediately opens the file provided in constructor parameters.
     /// Throws <see cref="FileNotFoundException"/> if file is not existent or <see cref="ArgumentException"/> if file is not '*.tdm' file
     /// </summary>
     /// <param name="file"></param>

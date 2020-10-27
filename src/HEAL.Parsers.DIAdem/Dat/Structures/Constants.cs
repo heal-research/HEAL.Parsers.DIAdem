@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HEAL.Parsers.DIAdem.Dat.Structures {
+﻿namespace HEAL.Parsers.DIAdem.Dat.Structures {
   /// <summary>
   /// defines constant values associated with the DAT file format and the parser
   /// </summary>

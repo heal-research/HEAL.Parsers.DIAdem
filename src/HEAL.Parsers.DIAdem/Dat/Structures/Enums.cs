@@ -26,7 +26,7 @@ namespace HEAL.Parsers.DIAdem.Dat.Structures {
     [TargetAttribute(nameof(GlobalHeader.OriginOfDataSet))]
     OriginOfDataSet = 1,
     [Description("Revision number")]
-    [TargetAttribute(nameof(GlobalHeader.RevisonNumber))]
+    [TargetAttribute(nameof(GlobalHeader.RevisionNumber))]
     RevisonNumber = 2,
     [Description("Description of the data set")]
     [TargetAttribute(nameof(GlobalHeader.DataSetDescription))]

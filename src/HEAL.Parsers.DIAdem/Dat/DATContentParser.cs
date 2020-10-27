@@ -8,8 +8,8 @@ using System.Reflection;
 namespace HEAL.Parsers.DIAdem.Dat {
   internal static class DATContentParser {
     /// <summary>
-    /// Parses one line and invoces the corred property setter of <see cref="GlobalHeader"/> to pass the parsed value
-    /// line is assumed to fit '<int>,<value>' as specifed by national instruments DAT documentation
+    /// Parses one line and invokes the correct property setter of <see cref="GlobalHeader"/> to pass the parsed value
+    /// line is assumed to fit '<int>,<value>' as specified by national instruments DAT documentation
     /// e.g. '101,Reading an ASCII channel file' or '110,#dd.mm.yyyy hh:nn:ss'
     /// A line is ignored if the value cannot be parsed as expected (e.g. wrong format or no available enum values)
     /// </summary>
@@ -35,7 +35,7 @@ namespace HEAL.Parsers.DIAdem.Dat {
       if (!Enum.IsDefined(typeof(EnumT), identification)) //cast int to enum is always possible, but value might not be in range
         return;
 
-      //TargetAttributeAttribute is defiend to be 'Multible=false' therefore Sinlge is used
+      //TargetAttributeAttribute is defined to be 'Multiple=false' therefore Single is used
       var attibute = typeof(EnumT).GetMember(identification.ToString()).First()
                         .GetCustomAttributes(typeof(TargetAttributeAttribute))
                         .Select(x => (TargetAttributeAttribute)x).SingleOrDefault();

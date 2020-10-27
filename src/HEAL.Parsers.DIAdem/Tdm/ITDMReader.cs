@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using HEAL.Parsers.DIAdem.Tdm;
 using HEAL.Parsers.DIAdem.Tdm.Structures;
 
 namespace HEAL.Parsers.DIAdem.Tdm {

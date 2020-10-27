@@ -1,11 +1,7 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
-using HEAL.Parsers.DIAdem.Dat;
 using HEAL.Parsers.DIAdem.Dat.Structures;
 using HEAL.Parsers.DIAdem.Tests;
 using Xunit;
@@ -25,7 +21,7 @@ namespace HEAL.Parsers.DIAdem.Dat.Tests {
         Assert.Equal("dd.MM.yyyy hh:mm:ss.ffff", fileInfo.NetTimeFormat);
         Assert.Equal("9.9E+300", fileInfo.NoValueValue);
         Assert.Equal("WINDOWS 32Bit", fileInfo.OriginOfDataSet);
-        Assert.Equal("{@R:1200 {@V:12.00.4911 {@F:4.00", fileInfo.RevisonNumber);
+        Assert.Equal("{@R:1200 {@V:12.00.4911 {@F:4.00", fileInfo.RevisionNumber);
         Assert.Equal("Reserve 1", fileInfo.Reserve1);
         Assert.Equal("Reserve 2", fileInfo.Reserve2);
         Assert.Equal("Reserve 3", fileInfo.Reserve3);

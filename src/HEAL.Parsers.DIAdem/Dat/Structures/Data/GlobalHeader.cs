@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
-using System.Text;
+
 
 namespace HEAL.Parsers.DIAdem.Dat.Structures {
 
   public class GlobalHeader : IDATHeader {
     public string OriginOfDataSet { get; set; }
-    public string RevisonNumber { get; set; }
+    public string RevisionNumber { get; set; }
     public string DataSetDescription { get; set; }
     public string DataSetComments { get; set; }
     public string DataSetProcessor { get; set; }
