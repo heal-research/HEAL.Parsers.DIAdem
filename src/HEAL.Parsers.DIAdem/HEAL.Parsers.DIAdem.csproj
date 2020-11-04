@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Provides parser and wrappers for the National Instruments DIAdem file types DAT and TDM.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HEAL.Parsers.DIAdem.Abstraction\HEAL.Parsers.DIAdem.Abstractions.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,9 +1,8 @@
-﻿using HEAL.Parsers.DIAdem.Dat.Structures;
-using HEAL.Parsers.DIAdem.Dat.Structures.Data;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using HEAL.Parsers.DIAdem.Dat.Abstractions;
 
 namespace HEAL.Parsers.DIAdem.Dat {
   internal static class DATContentParser {

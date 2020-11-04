@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HEAL.Parsers.DIAdem.Dat.Structures.Data {
+namespace HEAL.Parsers.DIAdem.Dat.Abstractions {
   [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
   public class TargetAttributeAttribute : Attribute {
     public TargetAttributeAttribute(string attributeName) {

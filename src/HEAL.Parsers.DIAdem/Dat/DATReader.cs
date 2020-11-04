@@ -1,4 +1,6 @@
-﻿using HEAL.Parsers.DIAdem.Dat.Structures;
+﻿using HEAL.Parsers.DIAdem.Abstractions;
+using HEAL.Parsers.DIAdem.Dat.Abstractions;
+using HEAL.Parsers.DIAdem.Dat.Structures;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +35,7 @@ namespace HEAL.Parsers.DIAdem.Dat {
       _fileInfo = file;
     }
 
-    public GlobalHeader GetGlobalHeader() {
+    public IGlobalHeader GetGlobalHeader() {
       int startIndex = Array.IndexOf(_headerLines, Constants.HeaderDelimiters.GlobalHeaderStart);
       int endIndex = Array.IndexOf(_headerLines, Constants.HeaderDelimiters.GlobalHeaderEnd);
 
@@ -50,7 +52,7 @@ namespace HEAL.Parsers.DIAdem.Dat {
       return GetChannelHeaders();
     }
 
-    public IEnumerable<ChannelHeader> GetChannelHeaders() {
+    public IEnumerable<IChannelHeader> GetChannelHeaders() {
       if(channelHeaders == null)
         channelHeaders = ParseChannelHeaders().ToArray();
 
@@ -164,5 +166,6 @@ namespace HEAL.Parsers.DIAdem.Dat {
 
     public void Dispose() {
     }
+
   }
 }

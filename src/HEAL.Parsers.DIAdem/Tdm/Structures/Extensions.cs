@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
 
 namespace HEAL.Parsers.DIAdem.Tdm.Structures {
     public static class StructureExtensions {

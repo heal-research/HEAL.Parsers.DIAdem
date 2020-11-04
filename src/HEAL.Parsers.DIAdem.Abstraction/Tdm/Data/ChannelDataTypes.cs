@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HEAL.Parsers.DIAdem.Dat.Structures;
-using HEAL.Parsers.DIAdem.Tdm.Structures;
+using HEAL.Parsers.DIAdem.Abstractions;
+using HEAL.Parsers.DIAdem.Dat.Abstractions;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
 
 namespace HEAL.Parsers.DIAdem {
-
-  /// <summary>
-  /// contains all common ChannelDataTypes 
-  /// </summary>
-  public enum CommonChannelDataTypes {
-    Int16, Int32, Single, Double, String, DIAdemFileSpecific
-  }
 
   public static class ChannelDataTypeExtensions {
     /// <summary>

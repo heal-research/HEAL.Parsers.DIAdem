@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
 
-namespace HEAL.Parsers.DIAdem.Tdm.Structures {
+namespace HEAL.Parsers.DIAdem.Tdm {
     public class ChannelGroup : Handle {
         public ChannelGroup(Int64 ptr)
             : base(ptr) { }

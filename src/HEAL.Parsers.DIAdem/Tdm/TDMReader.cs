@@ -1,4 +1,6 @@
-﻿using HEAL.Parsers.DIAdem.Tdm.NilibDdc;
+﻿using HEAL.Parsers.DIAdem.Abstractions;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
+using HEAL.Parsers.DIAdem.Tdm.NilibDdc;
 using HEAL.Parsers.DIAdem.Tdm.Structures;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,7 @@ namespace HEAL.Parsers.DIAdem.Tdm {
       _fileHandle = NiLibDdcWrapper.OpenFile(file.FullName);
     }
 
-    public FileProperties GetFileProperties() {
+    public IGlobalHeader GetFileProperties() {
       return NiLibDdcWrapper.GetFileProperties(_fileHandle);
     }
 
@@ -96,6 +98,10 @@ namespace HEAL.Parsers.DIAdem.Tdm {
 
     public void Dispose() {
       CloseFile();
+    }
+
+    public IGlobalHeader GetGlobalHeader() {
+      throw new NotImplementedException();
     }
   }
 }

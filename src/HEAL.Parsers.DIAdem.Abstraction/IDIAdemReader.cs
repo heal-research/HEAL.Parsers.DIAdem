@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HEAL.Parsers.DIAdem {
+namespace HEAL.Parsers.DIAdem.Abstractions {
 
   /// <summary>
   /// Largest denominator of DIAdem Parser functionality.
@@ -13,5 +13,6 @@ namespace HEAL.Parsers.DIAdem {
     IEnumerable<T> GetChannelData<T>(string channelName, uint firstValueIndex = 0, uint numberOfValues = 0) where T :  IConvertible;
     IEnumerable<T> GetChannelData<T>(IChannelHeader channelHeader, uint firstValueIndex = 0, uint numberOfValues = 0) where T :  IConvertible;
     IEnumerable<IChannelHeader> GetChannels();
+    IGlobalHeader GetGlobalHeader();
   }
 }

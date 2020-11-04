@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEAL.Parsers.DIAdem", "HEAL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEAL.Parsers.DIAdem.Tests", "tests\HEAL.Parsers.DIAdem.Tests\HEAL.Parsers.DIAdem.Tests.csproj", "{EA66D5E8-6E30-432C-8DA6-D21023967B20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEAL.Parsers.DIAdem.Abstractions", "HEAL.Parsers.DIAdem.Abstraction\HEAL.Parsers.DIAdem.Abstractions.csproj", "{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{EA66D5E8-6E30-432C-8DA6-D21023967B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA66D5E8-6E30-432C-8DA6-D21023967B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA66D5E8-6E30-432C-8DA6-D21023967B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D4F32C30-4A1B-401C-85D3-E878C069811F} = {E350B6D6-4587-4D18-BE31-2C0DC42995DC}
 		{EA66D5E8-6E30-432C-8DA6-D21023967B20} = {50F00B07-03E0-4446-ABBD-B23272CF36AA}
+		{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B} = {E350B6D6-4587-4D18-BE31-2C0DC42995DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE944790-2BEB-48C4-A624-C2D92DF3EA20}

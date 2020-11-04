@@ -2,7 +2,7 @@
 using System;
 using System.Globalization;
 using System.Linq;
-using HEAL.Parsers.DIAdem.Dat.Structures;
+using HEAL.Parsers.DIAdem.Dat.Abstractions;
 using HEAL.Parsers.DIAdem.Tests;
 using Xunit;
 
@@ -13,7 +13,7 @@ namespace HEAL.Parsers.DIAdem.Dat.Tests {
     [Fact]
     public static void CheckFileInfoParsing() {
       using (var parser = Shared.CreateDATParserInstance()) {
-        var fileInfo = parser.GetGlobalHeader();
+        var fileInfo = parser.GetGlobalHeader() as GlobalHeader;
 
         Assert.Equal("DataSetDescription", fileInfo.DataSetDescription);
         Assert.Equal("DataSetProcessor", fileInfo.DataSetProcessor);
@@ -32,7 +32,7 @@ namespace HEAL.Parsers.DIAdem.Dat.Tests {
     [Fact]
     public static void CheckChannelGroups() {
       using (var parser = Shared.CreateDATParserInstance()) {
-        var channelHeaders = parser.GetChannelHeaders();
+        var channelHeaders = parser.GetChannelHeaders().Cast<ChannelHeader>();
 
         Assert.NotNull(channelHeaders);
         Assert.NotEmpty(channelHeaders);
@@ -60,7 +60,7 @@ namespace HEAL.Parsers.DIAdem.Dat.Tests {
     [Fact]
     public static void CheckChannelData() {
       using (var parser = Shared.CreateDATParserInstance()) {
-        var channelHeaders = parser.GetChannelHeaders().ToList();
+        var channelHeaders = parser.GetChannelHeaders().Cast<ChannelHeader>().ToList();
 
         foreach (var channel in channelHeaders) {
           switch (channel.DataType) {

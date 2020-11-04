@@ -11,6 +11,7 @@ using DDCDataType = System.Int64;
 using System.Linq;
 using static HEAL.Parsers.DIAdem.Tdm.NiLibDdc.NiLibDdcMethodSignatures;
 using System.Runtime.InteropServices;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
 
 namespace HEAL.Parsers.DIAdem.Tdm.NilibDdc {
   /// <summary>

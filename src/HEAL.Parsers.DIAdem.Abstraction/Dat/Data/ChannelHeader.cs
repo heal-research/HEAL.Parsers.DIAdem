@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using HEAL.Parsers.DIAdem;
+using HEAL.Parsers.DIAdem.Abstractions;
 
-namespace HEAL.Parsers.DIAdem.Dat.Structures {
+namespace HEAL.Parsers.DIAdem.Dat.Abstractions {
   public class ChannelHeader : IDATHeader, IChannelHeader {
     public string Name { get; set; }
     public string Comment { get; set; }

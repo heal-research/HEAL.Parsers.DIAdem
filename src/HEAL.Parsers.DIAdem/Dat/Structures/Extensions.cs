@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Text;
+using HEAL.Parsers.DIAdem.Dat.Abstractions;
 
 namespace HEAL.Parsers.DIAdem.Dat.Structures {
   public static class EnumExtensions {

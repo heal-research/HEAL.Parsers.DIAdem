@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HEAL.Parsers.DIAdem.Abstractions;
 using HEAL.Parsers.DIAdem.Dat;
 using HEAL.Parsers.DIAdem.Tdm;
 using Xunit;
