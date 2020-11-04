@@ -1,4 +1,5 @@
 ﻿using HEAL.Parsers.DIAdem.Tdm;
+using HEAL.Parsers.DIAdem.Tdm.Abstractions;
 using HEAL.Parsers.DIAdem.Tdm.Structures;
 using HEAL.Parsers.DIAdem.Tests;
 using System;
@@ -12,9 +13,25 @@ using Xunit;
 namespace HEAL.Parsers.DIAdem.Tdm.Tests {
 
 
-#if INCLUDE_TDM
   public class TDMParserTest {
 
+    [Fact]
+    public static void MinimalExample() {
+      using (var parser = new TDMReader(Shared.TDM_File_Path)) {
+        // global file including: title, author, etc.
+        var header = parser.GetGlobalHeader() as FileProperties;
+        
+        var groups = parser.GetChannelGroups();
+
+        var channels = new List<Channel>();
+        foreach (var group in groups) {
+          channels.AddRange(parser.GetChannels(group));
+        }
+
+        double[] data = parser.GetChannelData<double>(channels.First()).ToArray();
+        Assert.NotEmpty(data);
+      }
+    }
 
     [Fact]
     public static void CheckFileInfoParsing() {
@@ -22,7 +39,7 @@ namespace HEAL.Parsers.DIAdem.Tdm.Tests {
         using (var parser = Shared.CreateTDMParserInstance()) {
           var fileInfo = parser.GetFileProperties();
 
-          Assert.Equal("09/11/2020 12:02:04", fileInfo.Time.ToString(CultureInfo.InvariantCulture));
+          Assert.Equal("09/11/2020 12:02:04", fileInfo.TimeStamp?.ToString(CultureInfo.InvariantCulture));
           Assert.Equal("testfile", fileInfo.Name);
           Assert.Equal("DataSetDescription", fileInfo.Title);
           Assert.Equal("DataSetProcessor", fileInfo.Author);
@@ -75,5 +92,4 @@ namespace HEAL.Parsers.DIAdem.Tdm.Tests {
       Shared.CheckOneChannelDataCommon(channel, values);
     }
   }
-#endif
 }

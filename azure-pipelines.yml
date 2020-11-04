@@ -90,11 +90,11 @@ steps:
     includeSymbols: true
     packDestination: '$(Build.ArtifactStagingDirectory)'
 
-# - task: NuGetCommand@2
-  # displayName: 'nuget push'
-  # inputs:
-    # command: 'push'
-    # packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    # nuGetFeedType: 'internal'
-    # publishVstsFeed: '37a49f3c-4d09-416a-9500-332df9473646/cf346de6-27ff-4cf4-9dab-25accf6dfa6c'
-    # allowPackageConflicts: true
+- task: NuGetCommand@2
+  displayName: 'nuget push'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '3c27b113-5a86-4767-b364-4e2ec207c21b/ba768a9d-31c9-40c6-a1b9-627502ffc6b0'
+    allowPackageConflicts: true

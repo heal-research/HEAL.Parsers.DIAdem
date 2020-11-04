@@ -44,35 +44,3 @@ using (var binReader = new BinaryReader(new FileStream("datafile.r32", FileMode.
   binReader.ReadSingle();
 }
 ```
-
-## Parser Implementation
-`DATReader` provides different methods for parsing the contents of the *.DAT header and its linked binary files:
-*DAT Access*
-```C#
-using(var parser = new DATReader(@"path_to.dat")) {
-  // global header including: title, author, etc.
-  GlobalHeader header = parser.GetGlobalHeader();
-
-  // channel header: channel-name, data-file location, datatype, min, max
-  IEnumerable<ChannelHeader> headers = parser.GetChannelHeaders();
-
-  // parses the actual channel data
-  double[] data = parser.GetChannelData<double>(headers.First()).ToArray();
-}
-```
-
-*TDM Access*
-```C#
-using(var parser = new TDMReader(@"path_to.tdm")) {
-  // global file including: title, author, etc.
-  FileProperties header =  parser.GetFileProperties();
-  var groups = parser.GetChannelGroups();
-
-  var channels = new List<Channel>();
-  foreach(var group in groups) {
-    channels.AddRange(parser.GetChannels(group));
-  }
-
-  double[] data = parser.GetChannelData<double>(channels.First()).ToArray();
-}
-```

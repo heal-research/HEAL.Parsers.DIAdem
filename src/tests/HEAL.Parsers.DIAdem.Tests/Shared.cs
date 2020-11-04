@@ -14,13 +14,13 @@ namespace HEAL.Parsers.DIAdem.Tests {
     /// </summary>
     public static readonly object TdmReaderLock = new object();
 
-    private const string TDM_File_Path = @"DIAdemFiles\testfile.tdm";
+    public const string TDM_File_Path = @"DIAdemFiles\testfile.tdm";
     public static TDMReader CreateTDMParserInstance() {
 
       return new TDMReader(TDM_File_Path);
     }
 
-    private const string DAT_File_Path = @"DIAdemFiles\testfile.dat";
+    public const string DAT_File_Path = @"DIAdemFiles\testfile.dat";
     public static DATReader CreateDATParserInstance() {
       return new DATReader(DAT_File_Path);
     }

@@ -36,7 +36,7 @@ namespace HEAL.Parsers.DIAdem.Tdm {
       _fileHandle = NiLibDdcWrapper.OpenFile(file.FullName);
     }
 
-    public IGlobalHeader GetFileProperties() {
+    public FileProperties GetFileProperties() {
       return NiLibDdcWrapper.GetFileProperties(_fileHandle);
     }
 
@@ -101,7 +101,7 @@ namespace HEAL.Parsers.DIAdem.Tdm {
     }
 
     public IGlobalHeader GetGlobalHeader() {
-      throw new NotImplementedException();
+      return GetFileProperties();
     }
   }
 }

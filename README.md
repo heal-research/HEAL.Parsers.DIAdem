@@ -17,9 +17,26 @@ DIAdem is a trademark of National Instruments. Neither [HEAL](https://heal.heuri
 The nuget package does not contain the TDM C DLL provided by National Instruments. Therefore **both** of the following steps are necessary for usage. 
 
 ### Install the Nuget Package
-Full releases are published to the public [nuget.org]() feed.
+All release packages of this solution can be found on the public nuget.org feed.
 
-The additional [public feed]() of our release pipeline provides release candidate and feature builds.
+Additionally, we provide a public nuget build feed where you can get the latest release candidate or feature builds from our CI platform see the [development instructions](docs/development.md).
+
+To use the package include the following feed URL in visual studio 
+```
+https://pkgs.dev.azure.com/heal-research/HEAL.Parsers.DIAdem/_packaging/HEAL.Parsers.DIAdem/nuget/v3/index.json
+```
+or add a nuget.config file to your project, in the same folder as your .csproj or .sln file with the following content
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+
+    <add key="HEAL.Parsers.DIAdem" value="https://pkgs.dev.azure.com/heal-research/HEAL.Parsers.DIAdem/_packaging/HEAL.Parsers.DIAdem/nuget/v3/index.json" />
+
+  </packageSources>
+</configuration>
+```
 
 ### Copy NILIBDDC TDM C DLL
 Download the National Instruments TDM C DLL library as described in the [National Instruments TDMS File Format white paper](http://www.ni.com/white-paper/3727/en/#toc4) and place the contents of `TDM C DLL\dev\bin\64-bit` in your executable directory. 
@@ -33,12 +50,12 @@ Visit the [detailed documentation](docs/HEAL.Domain.DataAccess.DIAdem.md) for mo
 
 *DAT Access*
 ```C#
-using(var parser = new DATReader(@"path_to.dat")) {
+using (var parser = new DATReader(@"path_to.dat")) {
   // global header including: title, author, etc.
-  GlobalHeader header = parser.GetGlobalHeader();
+  GlobalHeader header = parser.GetGlobalHeader() as GlobalHeader;
 
   // channel header: channel-name, data-file location, datatype, min, max
-  IEnumerable<ChannelHeader> headers = parser.GetChannelHeaders();
+  IEnumerable<ChannelHeader> headers = parser.GetChannelHeaders().Cast<ChannelHeader>();
 
   // parses the actual channel data
   double[] data = parser.GetChannelData<double>(headers.First()).ToArray();
@@ -47,13 +64,14 @@ using(var parser = new DATReader(@"path_to.dat")) {
 
 *TDM Access*
 ```C#
-using(var parser = new TDMReader(@"path_to.tdm")) {
+using (var parser = new TDMReader(@"path_to.tdm")) {
   // global file including: title, author, etc.
-  FileProperties header =  parser.GetFileProperties();
+  var header = parser.GetGlobalHeader() as FileProperties;
+  
   var groups = parser.GetChannelGroups();
 
   var channels = new List<Channel>();
-  foreach(var group in groups) {
+  foreach (var group in groups) {
     channels.AddRange(parser.GetChannels(group));
   }
 

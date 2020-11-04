@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using HEAL.Parsers.DIAdem.Dat.Abstractions;
@@ -9,6 +10,20 @@ using Xunit;
 namespace HEAL.Parsers.DIAdem.Dat.Tests {
   public class DatParserTest {
 
+    [Fact]
+    public static void MinimalExample() {
+      using (var parser = new DATReader(Shared.DAT_File_Path)) {
+        // global header including: title, author, etc.
+        GlobalHeader header = parser.GetGlobalHeader() as GlobalHeader;
+
+        // channel header: channel-name, data-file location, datatype, min, max
+        IEnumerable<ChannelHeader> headers = parser.GetChannelHeaders().Cast<ChannelHeader>();
+
+        // parses the actual channel data
+        double[] data = parser.GetChannelData<double>(headers.First()).ToArray();
+        Assert.NotEmpty(data);
+      }
+    }
 
     [Fact]
     public static void CheckFileInfoParsing() {
@@ -96,6 +111,6 @@ namespace HEAL.Parsers.DIAdem.Dat.Tests {
       Shared.CheckOneChannelDataCommon(channel, values);
     }
 
-    
+
   }
 }

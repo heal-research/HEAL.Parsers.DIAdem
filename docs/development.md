@@ -9,7 +9,7 @@
     - for more information on versioning read [Versioning and deployment](#versioning-and-deployment)
 1. download the National Instruments TDM C DLL library [here](https://www.ni.com/content/dam/web/product-documentation/c_dll_tdm.zip) and place the zip in `src/libs/NILIBDDC-64bit.zip` 
     - zip the contents of `TDM C DLL\dev\bin\64-bit` 
-    - place the zip in the described folder
+    - place the zip in the described folder `src/libs/NILIBDDC-64bit.zip` 
     - MSBuild extracts the library into the unit test's bin folder as a post build event
 
     ![Install NILIBDDC](img/InstallNILIBDDC.GIF)
@@ -27,4 +27,4 @@ Semantic versioning example:
 1.0.0-prerelease < 1.0.1-prerelease < 1.0.1-rc < 1.0.1
 ```
 
-The master and feature branches are used for feature development and track versions with the `prerelease` suffix. These branches are considered by the CI pipeline which regularly builds publicly available packages and pushes them to the [public feed](). 
+The master and feature branches are used for feature development and track versions with the `prerelease` suffix. These branches are considered by the CI pipeline which regularly builds publicly available packages and pushes them to the public DevOps feed. Stable versions are subsequently published to the public nuget.org feed. 
