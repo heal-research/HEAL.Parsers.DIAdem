@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/heal-research/HEAL.Parsers.DIAdem/_apis/build/status/heal-research.HEAL.Parsers.DIAdem?branchName=master)](https://dev.azure.com/heal-research/HEAL.Parsers.DIAdem/_build/latest?definitionId=3&branchName=master)
 # HEAL.Parsers.DIAdem
 HEAL.Parsers.DIAdem provides managed C# access to the proprietary DIAdem data format. It implements C# wrapper methods for the NILIBDDC TDM C DLL, as provided by [National Instruments](https://www.ni.com/). 
 
