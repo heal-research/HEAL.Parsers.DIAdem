@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEAL.Parsers.DIAdem", "HEAL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEAL.Parsers.DIAdem.Tests", "tests\HEAL.Parsers.DIAdem.Tests\HEAL.Parsers.DIAdem.Tests.csproj", "{EA66D5E8-6E30-432C-8DA6-D21023967B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEAL.Parsers.DIAdem.Abstractions", "HEAL.Parsers.DIAdem.Abstraction\HEAL.Parsers.DIAdem.Abstractions.csproj", "{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEAL.Parsers.DIAdem.Abstractions", "HEAL.Parsers.DIAdem.Abstractions\HEAL.Parsers.DIAdem.Abstractions.csproj", "{FEB1BF0D-E793-4F5C-9C2C-79EC6037199B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
