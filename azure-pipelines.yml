@@ -8,7 +8,7 @@ trigger:
   branches:
     include:
     - master
-    - release/*
+    - 'v*'
     - feature/*
   paths:
     exclude:
@@ -88,13 +88,21 @@ steps:
     packagesToPack: '**/*.csproj;!**/*Tests.csproj'
     versioningScheme: 'off'
     includeSymbols: true
-    packDestination: '$(Build.ArtifactStagingDirectory)'
+    packDestination: '$(Build.ArtifactStagingDirectory)/packages'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/packages'
+    ArtifactName: 'packages'
+    publishLocation: 'Container'
+  displayName: Publish deployable packages
+
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/packages/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/packages/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: '3c27b113-5a86-4767-b364-4e2ec207c21b/ba768a9d-31c9-40c6-a1b9-627502ffc6b0'
     allowPackageConflicts: true
