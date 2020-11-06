@@ -8,8 +8,8 @@ trigger:
   branches:
     include:
     - master
-    - release/*
     - feature/*
+    - 'v*'
   paths:
     exclude:
     - docs/*
@@ -88,7 +88,16 @@ steps:
     packagesToPack: '**/*.csproj;!**/*Tests.csproj'
     versioningScheme: 'off'
     includeSymbols: true
-    packDestination: '$(Build.ArtifactStagingDirectory)'
+    packDestination: '$(Build.ArtifactStagingDirectory)/packages'
+    
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/packages'
+    ArtifactName: 'packages'
+    publishLocation: 'Container'
+  displayName: Publish deployable packages
+
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
