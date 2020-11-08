@@ -23,8 +23,12 @@ variables:
   # SolutionDir variable is required for prebuild events in projects
   SolutionDir: '$(Build.SourcesDirectory)\src\' 
   buildConfiguration: Release
+  isPublicRelease: $[eq(variables['Build.SourceBranch'], '*release/v*')]
 
 steps:
+# ------------ preserve credentials for tagging ------------
+- checkout: self
+  persistCredentials: true
 
 # ------------ Nerdbank.GitVersioning ------------
 - task: DotNetCoreCLI@2  
@@ -106,3 +110,20 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '3c27b113-5a86-4767-b364-4e2ec207c21b/ba768a9d-31c9-40c6-a1b9-627502ffc6b0'
     allowPackageConflicts: true
+    
+# ------------  Tag git commit with version number ------------
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      if (git tag | select-string "$(Build.BuildNumber)") {
+        Write-Output "tag already exists for $(Build.BuildNumber)."
+        exit 0
+      }
+      else {
+        Write-Output "Tagging $(Build.Repository.Name) with $(Build.BuildNumber)"
+        git tag "$(Build.BuildNumber)"
+        git push origin "$(Build.BuildNumber)"
+      }
+    errorActionPreference: 'continue'
+  condition: and(succeeded(), eq(variables.isPublicRelease, true))
